@@ -51,7 +51,7 @@ class File:
 
 
 class FilesList:
-    def __init__(self, func_name: str = '', formats: str = ''):
+    def __init__(self, func_name: str = '', formats: str = '', files_storage: str = "results"):
         self.files: List[File] = []
 
         if func_name != '' and formats != '':
@@ -59,7 +59,7 @@ class FilesList:
             for f in formats:
                 file_name = self.generate_file_name(func_name, f)
                 # file_name = 'files/' + self.generate_file_name(func_name, f)
-                self.files.append(File(file_name))
+                self.files.append(File(file_name, files_storage))
 
     def __add__(self, other):
         if isinstance(other, File):
