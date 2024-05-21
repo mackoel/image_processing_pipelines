@@ -135,7 +135,7 @@ class CVLibGenerator:
                 s1 = "Operators ("
                 s2 = ") VALUES"
 
-                if 'INSERT OR REPLACE INTO Operators (' in line:
+                if 'INSERT OR REPLACE INTO Operators' in line:
                     first = line.index(s1) + len(s1)
                     last = line.index(s2)
                     list_p = line[first:last].split(", ")
