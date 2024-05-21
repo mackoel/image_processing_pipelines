@@ -4,6 +4,7 @@ from typing import List
 from ap_parser import Node
 import sqlite3 as db
 from template_enums import enums_numbers_to_str
+import os
 
 
 class CVLibWriter:
@@ -13,7 +14,7 @@ class CVLibWriter:
 
         self.db_name = 'cvLib.db'
         self.help_table_name = 'OperatorsMeta'
-        self.connection = db.connect('data/' + self.db_name)
+        self.connection = db.connect(os.path.join('data', self.db_name))
 
         self.files_path = files_path
 
@@ -33,7 +34,7 @@ class CVLibWriter:
         return starts_with + get_name(self.name_generate_count[node_type]) + ends_with
 
     def change_file_path(self, file_path):
-        return self.files_path + "\\" + file_path.split('/')[-1].replace("%20", " ")
+        return os.path.join(self.files_path, file_path.split('/')[-1].replace("%20", " "))
 
     @staticmethod
     def get_in_nodes(node: Node):
