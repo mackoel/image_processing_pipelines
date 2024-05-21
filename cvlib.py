@@ -29,23 +29,23 @@ def actikon(inputs: FilesList, alpha: float = 0.01, beta: float = 0.1, convergen
 	return outputs
 
 
-#  This operator allows to  interactively mark areas in the image
+# allows to  interactively mark areas in the image
 def scribble(input: File, title: str = 'Scribble') -> FilesList:
-	if input.format != ' tif':
+	if input.format != 'tif':
 		print('ERROR in scribble function: incorrect type of input files')
 		return FilesList()
-	outputs = FilesList(func_name='scribble', formats=' tif')
+	outputs = FilesList(func_name='scribble', formats='tif')
 	command = default_path + 'scribble.py' + ' ' + str(title) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
-#  This operator draws object numbers in the image
+# draws object numbers in the image
 def impute_text(inputs: FilesList, colorrgbtriple: str = '255x0x0', fontscale: float = 1.0, fontthicknes: int = 2) -> FilesList:
-	if not inputs.check_formats(' tif,csv'):
+	if not inputs.check_formats('tif,csv'):
 		print('ERROR in impute_text function: incorrect type of input files')
 		return FilesList()
-	outputs = FilesList(func_name='impute_text', formats=' tif')
+	outputs = FilesList(func_name='impute_text', formats='tif')
 	command = default_path + 'impute_text.py' + ' -c ' + str(colorrgbtriple) + ' -f ' + str(fontscale) + ' -t ' + str(fontthicknes) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
@@ -613,12 +613,12 @@ def ppix(input: File, ac: float = 1.0, bc: float = 0.0, ar: float = 1.0, br: flo
 
 
 # reads raw image and writes it in tiff format
-def raw(input: File, columns: int = 1024, rows: int = 1024, bps: RawBpsEnum = RawBpsEnum.8) -> FilesList:
+def raw(input: File, columns: int = 1024, rows: int = 1024, bps: int = 8) -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in raw function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='raw', formats='tif')
-	command = prostack_path + ' -o raw' + ' -s ' + str(columns) + ',' + str(rows) + ',' + str(bps.value) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o raw' + ' -s ' + str(columns) + ',' + str(rows) + ',' + str(bps) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 

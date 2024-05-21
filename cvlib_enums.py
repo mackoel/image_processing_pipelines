@@ -76,9 +76,6 @@ class Plot_spFunctionEnum(str, Enum):
     EQN = 'eqn'
 
 
-class RawBpsEnum(str, Enum):
-
-
 class SselectRuleEnum(str, Enum):
     ACCEPT = 'accept'
     REJECT = 'reject'

@@ -216,7 +216,7 @@ class CVLibGenerator:
             body = f"class {enum_name}(str, Enum):\n"
             for e in enum_values:
                 if re.search(r'\d', e):
-                    print(f"ERROR: проблема в формировании enum для функции {func_name} из-за наличия чисел")
+                    print(f"ERROR: проблема в формировании enum для функции {func_name} из-за наличия чисел", e)
                 else:
                     body += f"    {e.upper()} = '{e}'\n"
 

@@ -8,7 +8,9 @@ enums_numbers_to_str = {
     7: 'SEVEN',
     8: 'EIGHT',
     9: 'NINE',
-    26: 'TWENTY_SIX'
+    26: 'TWENTY_SIX',
+    16: 'SIXTEEN',
+    1024: 'TWO_IN_TENTH'
 }
 
 templates_enums_body = {
