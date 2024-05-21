@@ -12,8 +12,8 @@ def clean_dir(cleared_path="automatic"):
 
 
 class File:
-    def __init__(self, file_path: str = ''):
-        self.files_storage = "C:\\results\\"
+    def __init__(self, file_path: str = '', files_storage: str = "results"):
+        self.files_storage = files_storage
 
         # если есть пробелы и файл существует, то перемещаем его с новым названием без пробелов
         if ("%20" in file_path or " " in file_path) and os.path.isfile(file_path.replace("%20", " ")):
