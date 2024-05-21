@@ -7,7 +7,7 @@ import re
 
 
 class CVLibGenerator:
-    def __init__(self, files_ru: list, files_en: list, prostack_path: str = "prostak", image_magick_path: str = ""):
+    def __init__(self, files_ru: list, files_en: list, prostack_path: str = "prostak", image_magick_path: str = "", default_path: str = ""):
         self.files_ru = files_ru
         self.files_en = files_en
 
@@ -20,9 +20,10 @@ class CVLibGenerator:
         self.lib_file_name = 'cvlib.py'
         self.prostack_path = prostack_path
         self.image_magick_path = image_magick_path
+        self.default_path = default_path
 
-        if not os.path.exists('/files'):
-            os.makedirs('/files')
+        if not os.path.exists('files'):
+            os.makedirs('files')
 
     def run(self):
         # создаем базу данных
@@ -110,6 +111,7 @@ class CVLibGenerator:
             result = f"import os\n" \
                      f"from files_manager import File, FilesList\n" \
                      f"from cvlib_enums import *\n\n" \
+                     f"default_path = r'{self.default_path}'\n" \
                      f"prostack_path = r'{self.prostack_path}'\n" \
                      f"image_magick_path = r'{self.image_magick_path}'\n\n\n"
             for row in rows:
@@ -326,7 +328,9 @@ class CVLibGenerator:
         if implementor == 'ProStack':
             return "prostack_path"
         elif implementor == 'IM':
-            return "image_magick_path + ' '"
+            return "image_magick_path"
+        else:
+            return "default_path"
 
     @staticmethod
     def find_files_count(files: str) -> int:

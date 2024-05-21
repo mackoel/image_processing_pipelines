@@ -76,6 +76,9 @@ class Plot_spFunctionEnum(str, Enum):
     EQN = 'eqn'
 
 
+class RawBpsEnum(str, Enum):
+
+
 class SselectRuleEnum(str, Enum):
     ACCEPT = 'accept'
     REJECT = 'reject'
@@ -114,5 +117,14 @@ class MlsregTypeEnum(str, Enum):
     AFFINE = 'affine'
     SIMILAR = 'similar'
     RIGID = 'rigid'
+
+
+class ContrasttransferTransfer_funcEnum(str, Enum):
+    EXP = 'exp'
+    LOG = 'log'
+    INVLOG = 'invlog'
+    SQR = 'sqr'
+    SQRT = 'sqrt'
+    TANH = 'tanh'
 
 

@@ -7,7 +7,7 @@ from template_enums import enums_numbers_to_str
 
 
 class CVLibWriter:
-    def __init__(self, file_name: str):
+    def __init__(self, file_name: str, files_path: str = "output"):
         self.file_name = file_name
         self.name_generate_count = {'INS': -1, 'OUS': -1, 'PAM': -1}
 
@@ -15,7 +15,7 @@ class CVLibWriter:
         self.help_table_name = 'OperatorsMeta'
         self.connection = db.connect('data/' + self.db_name)
 
-        self.files_path = r'C:\Eyedisks\M1'
+        self.files_path = files_path
 
     def generate_var_name(self, node_type: str, starts_with: str = '', ends_with: str = '') -> str:
         def get_name(num, to_base=26, from_base=10):
@@ -83,6 +83,8 @@ class CVLibWriter:
         return result
 
     def parse_params(self, node: Node) -> str:
+
+        print(node)
         if node.params == '':
             return ''
         with self.connection as con:
@@ -90,7 +92,9 @@ class CVLibWriter:
             cur.execute(f"SELECT * FROM {self.help_table_name} WHERE func_name = '{node.name}'")
             # print({node.name})
             params = list(cur.fetchone())
+            # print(params)
             for i in range(len(params)):
+                # print(params[i])
                 if params[i].find('[') != -1:
                     params[i] = json.loads(params[i])
         params_dict = self.find_template_match(params[1], node.params)
