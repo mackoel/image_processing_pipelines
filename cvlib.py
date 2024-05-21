@@ -74,12 +74,12 @@ def andif(input: File, iterations: int = 3, time_step: float = 0.9, threshold: f
 
 
 # applies the rules to put the image of Drosophila embryo into standard orientation
-def apee(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def apee(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in apee function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='apee', formats='tif')
-	command = prostack_path + ' -o apee' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o apee' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -129,23 +129,23 @@ def ar_x(input: File, value: float = 1) -> FilesList:
 
 
 # averages three images pixel by pixel
-def avg(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def avg(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif,tif'):
 		print('ERROR in avg function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='avg', formats='tif')
-	command = prostack_path + ' -o avg' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o avg' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # averages two images pixel by pixel
-def avg2(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def avg2(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in avg2 function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='avg2', formats='tif')
-	command = prostack_path + ' -o avg' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o avg' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -316,12 +316,12 @@ def gclose(inputs: FilesList, repetitions: int = 1) -> FilesList:
 
 
 # reduces dimensions of the input image
-def geometry(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def geometry(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in geometry function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='geometry', formats='tif')
-	command = prostack_path + ' -o geometry' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o geometry' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -459,34 +459,34 @@ def mask(inputs: FilesList) -> FilesList:
 
 
 # computes pixel by pixel maximum of three input images
-def max(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def max(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif,tif'):
 		print('ERROR in max function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='max', formats='tif')
-	command = prostack_path + ' -o max' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o max' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # computes pixel by pixel maximum of two input images
-def max2(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def max2(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in max2 function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='max2', formats='tif')
-	command = prostack_path + ' -o max' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o max' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # reduces the dimensions of the input image
-def mcrop(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mcrop(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in mcrop function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mcrop', formats='tif')
-	command = prostack_path + ' -o geometry' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o geometry' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -558,34 +558,34 @@ def movl6(inputs: FilesList, color_1: ColorsEnum = ColorsEnum.RED, color_2: Colo
 
 
 # expands the dimensions of the input image
-def mpad(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mpad(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in mpad function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mpad', formats='tif')
-	command = prostack_path + ' -o pad' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o pad' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # multiplies each data point in multiplier image by the corresponding data point in input image and returns the product in the corresponding data point of the output image
-def mul(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mul(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in mul function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mul', formats='tif')
-	command = prostack_path + ' -o mul' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o mul' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # expands the dimensions of the input image
-def pad(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def pad(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in pad function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='pad', formats='tif')
-	command = prostack_path + ' -o pad' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o pad' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -635,23 +635,23 @@ def reconstruct(inputs: FilesList, connectivity: ConnectivityEnum = Connectivity
 
 
 # reverses columns in the image
-def revcol(input: File, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def revcol(input: File, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in revcol function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='revcol', formats='tif')
-	command = prostack_path + ' -o revcol' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o revcol' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # reverses rows in the image
-def revrow(input: File, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def revrow(input: File, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in revrow function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='revrow', formats='tif')
-	command = prostack_path + ' -o revrow' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o revrow' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -819,12 +819,12 @@ def hystthresh3d(input: File, low_threshold: float = 10.0, high_threshold: float
 
 
 # rotates image to a given angle (second input) that can be calculated by the rotate (see 8
-def turn(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def turn(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in turn function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='turn', formats='tif')
-	command = prostack_path + ' -o turn' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o turn' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -907,12 +907,12 @@ def m_ar_x(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offse
 
 
 # applies the rules to put the image of Drosophila embryo into standard orientation
-def apee3d(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def apee3d(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in apee3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='apee3d', formats='tif')
-	command = prostack_path + ' -o apee3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o apee3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1039,12 +1039,12 @@ def gclose3d(inputs: FilesList, repetitions: int = 1) -> FilesList:
 
 
 # reduces dimensions of the input image
-def geometry3d(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def geometry3d(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in geometry3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='geometry3d', formats='tif')
-	command = prostack_path + ' -o geometry3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o geometry3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1072,23 +1072,23 @@ def lheq3d(inputs: FilesList, repetitions: int = 1) -> FilesList:
 
 
 # computes pixel by pixel maximum of the images in the stack
-def max3d(input: File, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def max3d(input: File, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in max3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='max3d', formats='tif')
-	command = prostack_path + ' -o max3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o max3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # reduces the dimensions of the input image
-def mcrop3d(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mcrop3d(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in mcrop3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mcrop3d', formats='tif')
-	command = prostack_path + ' -o geometry3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o geometry3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1105,34 +1105,34 @@ def median3d(inputs: FilesList, repetitions: int = 1) -> FilesList:
 
 
 # expands the dimensions of the input image
-def mpad3d(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mpad3d(input: File, upper_offset: int = 1, lower_offset: int = 1, left_offset: int = 1, right_offset: int = 1, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in mpad3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mpad3d', formats='tif')
-	command = prostack_path + ' -o pad3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o pad3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' -s ' + str(upper_offset) + ',' + str(lower_offset) + ',' + str(left_offset) + ',' + str(right_offset) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # multiplies each data point in multiplier image by the corresponding data point in input image and returns the product in the corresponding data point of the output image
-def mul3d(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def mul3d(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in mul3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='mul3d', formats='tif')
-	command = prostack_path + ' -o mul3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o mul3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # expands the dimensions of the input image
-def pad3d(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def pad3d(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in pad3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='pad3d', formats='tif')
-	command = prostack_path + ' -o pad3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o pad3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1149,23 +1149,23 @@ def reconstruct3d(inputs: FilesList, connectivity: Connectivity3dEnum = Connecti
 
 
 # reverses columns in the image
-def revcol3d(input: File, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def revcol3d(input: File, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in revcol3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='revcol3d', formats='tif')
-	command = prostack_path + ' -o revcol3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o revcol3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # reverses rows in the image
-def revrow3d(input: File, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def revrow3d(input: File, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if input.format != 'tif':
 		print('ERROR in revrow3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='revrow3d', formats='tif')
-	command = prostack_path + ' -o revrow3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
+	command = prostack_path + ' -o revrow3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + input.file_path + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1212,12 +1212,12 @@ def vstrel3d(input: File) -> FilesList:
 
 
 # rotates image to a given angle (second input) that can be calculated by the rotate (see 8
-def turn3d(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def turn3d(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,txt'):
 		print('ERROR in turn3d function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='turn3d', formats='tif')
-	command = prostack_path + ' -o turn3d' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o turn3d' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
@@ -1407,23 +1407,23 @@ def shape3d(input: File, connectivity: Connectivity3dEnum = Connectivity3dEnum.S
 
 
 # averages two images pixel by pixel
-def vavg(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def vavg(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in vavg function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='vavg', formats='tif')
-	command = prostack_path + ' -o vavg' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o vavg' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 
 
 # computes pixel by pixel maximum of two input images
-def vmax(inputs: FilesList, don`t_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
+def vmax(inputs: FilesList, dont_assume_12_bits: str = '-b', output_with_8_bits: str = '-a') -> FilesList:
 	if not inputs.check_formats('tif,tif'):
 		print('ERROR in vmax function: incorrect type of input files')
 		return FilesList()
 	outputs = FilesList(func_name='vmax', formats='tif')
-	command = prostack_path + ' -o vmax' + ' ' + str(don`t_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
+	command = prostack_path + ' -o vmax' + ' ' + str(dont_assume_12_bits) + ' ' + str(output_with_8_bits) + ' ' + inputs.get_command() + ' ' + outputs.get_command()
 	os.system(command)
 	return outputs
 

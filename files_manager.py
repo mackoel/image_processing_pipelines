@@ -17,21 +17,21 @@ class File:
 
         # если есть пробелы и файл существует, то перемещаем его с новым названием без пробелов
         if ("%20" in file_path or " " in file_path) and os.path.isfile(file_path.replace("%20", " ")):
-            new_path = file_path.split('\\')[-1].replace("%20", "_").replace(" ", "_").replace(",", "_")
-            new_path = self.files_storage + new_path
+            new_path = os.path.basename(file_path).replace("%20", "_").replace(" ", "_").replace(",", "_")
+            new_path = os.path.join(self.files_storage, new_path)
             shutil.copy2(file_path.replace("%20", " "), new_path)
             self.file_path = new_path
         # если есть пробелы и файл новый
         elif "%20" in file_path or " " in file_path:
-            new_path = file_path.split('\\')[-1].replace("%20", "_").replace(" ", "_").replace(",", "_")
-            new_path = self.files_storage + new_path
+            new_path = os.path.basename(file_path).replace("%20", "_").replace(" ", "_").replace(",", "_")
+            new_path = os.path.join(self.files_storage, new_path)
             self.file_path = new_path
         # если нет пробелов и файл существует
         elif os.path.isfile(file_path):
             self.file_path = file_path
         # если файла не существует
         else:
-            self.file_path = self.files_storage + file_path
+            self.file_path = os.path.join(self.files_storage, file_path)
 
         print(self.file_path)
 
