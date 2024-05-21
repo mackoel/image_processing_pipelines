@@ -5,10 +5,10 @@ from typing import List
 import shutil
 
 
-def clean_dir():
-    files = os.listdir(f"C:\\Users\\Дмитрий\\PycharmProjects\\automatic\\files\\")
+def clean_dir(cleared_path="automatic"):
+    files = os.listdir(cleared_path)
     for f in files:
-        os.remove(f"C:\\Users\\Дмитрий\\PycharmProjects\\automatic\\files\\{f}")
+        os.remove(cleared_path + f"{f}")
 
 
 class File:
