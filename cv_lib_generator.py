@@ -7,7 +7,7 @@ import re
 
 
 class CVLibGenerator:
-    def __init__(self, files_ru: tuple, files_en: tuple, prostack_path: str = "prostak", image_magick_path: str = ""):
+    def __init__(self, files_ru: list, files_en: list, prostack_path: str = "prostak", image_magick_path: str = ""):
         self.files_ru = files_ru
         self.files_en = files_en
 
@@ -34,7 +34,7 @@ class CVLibGenerator:
         self.create_library()
         pass
 
-    def create_table(self, ini_files: tuple, table_name: str):
+    def create_table(self, ini_files: list, table_name: str):
         # подготавливаем поля таблицы и insert-запросы
         attributes, requests = [], []
         for file in ini_files:
