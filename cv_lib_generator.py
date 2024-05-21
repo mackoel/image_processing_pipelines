@@ -7,7 +7,7 @@ import re
 
 
 class CVLibGenerator:
-    def __init__(self, files_ru: tuple, files_en: tuple):
+    def __init__(self, files_ru: tuple, files_en: tuple, prostack_path: str = "prostak", image_magick_path: str = ""):
         self.files_ru = files_ru
         self.files_en = files_en
 
@@ -18,8 +18,8 @@ class CVLibGenerator:
         self.connection = db.connect('data/' + self.db_name)
 
         self.lib_file_name = 'cvlib.py'
-        self.prostack_path = r'"C:\ProStack\bin\prostak.exe"'
-        self.image_magick_path = r'"C:\Program Files\ImageMagick\magick.exe"'
+        self.prostack_path = prostack_path
+        self.image_magick_path = image_magick_path
 
         if not os.path.exists('/files'):
             os.makedirs('/files')
