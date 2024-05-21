@@ -195,6 +195,7 @@ class CVLibGenerator:
                       .replace(' ', '_')
                       .replace("'", '')
                       .replace(".", '')
+                      .replace("`", '')
                       .replace("?", ''))
             result = result.lower()
 

@@ -2,6 +2,7 @@ import os
 from files_manager import File, FilesList
 from cvlib_enums import *
 
+default_path = r''
 prostack_path = r'prostak'
 image_magick_path = r''
 
@@ -40,7 +41,7 @@ def scribble(input: File, title: str = 'Scribble') -> FilesList:
 
 
 #  This operator draws object numbers in the image
-def impute_text(inputs: FilesList, colorrgbtriple: str = '255-0-0', fontscale: float = 1.0, fontthicknes: int = 2) -> FilesList:
+def impute_text(inputs: FilesList, colorrgbtriple: str = '255x0x0', fontscale: float = 1.0, fontthicknes: int = 2) -> FilesList:
 	if not inputs.check_formats(' tif,csv'):
 		print('ERROR in impute_text function: incorrect type of input files')
 		return FilesList()
